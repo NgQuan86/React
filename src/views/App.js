@@ -1,5 +1,12 @@
 import logo from './logo.svg';
 import './App.scss';
+import MyCom from './Example/MyCom';
+/*
+  2 components: class component/ function component(function, arrow)
+  JSX : HTML inside JS
+*/
+
+
 
 function App() {
   return (
@@ -17,6 +24,8 @@ function App() {
         >
           Learn React
         </a>
+        <MyCom/>
+
       </header>
     </div>
   );
