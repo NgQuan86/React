@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.scss';
 import MyCom from './Example/MyCom';
+// import MyForm from "./MyForm";
+
 /*
   2 components: class component/ function component(function, arrow)
   JSX : HTML inside JS
@@ -24,7 +26,9 @@ function App() {
         >
           Learn React
         </a>
+
         <MyCom/>
+        {/* <MyForm/> */}
 
       </header>
     </div>
