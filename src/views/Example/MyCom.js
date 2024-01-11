@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import MyForm from "./MyForm";
-import Child from "./ChildCom";
+
 
 
 class MyCom extends Component {
@@ -9,6 +9,7 @@ class MyCom extends Component {
         age: '30',
         car: 'fiat',
         color: 'red'
+        
     }
 
     // FUNCTION
@@ -22,8 +23,7 @@ class MyCom extends Component {
         })
     }
 
-    render = () => {
-
+    render() {
         //variable
         let title = 'My first component';
 
@@ -52,13 +52,10 @@ class MyCom extends Component {
                 </div>
 
                 {console.log(`variable let: ${title}`)}
+
+
+                                                {/*COMPONENT*/}
                 <MyForm />
-
-                <Child //props : object from parent to child component
-                    name = {'Quan'}
-                    age = {'30'}
-                />
-
             </div>
         )
     }
