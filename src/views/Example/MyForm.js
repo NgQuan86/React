@@ -1,13 +1,13 @@
 import React from "react";
 import Child from "./ChildCom";
+import AddCom from "./AddCom";
 import MyFunctionalComponent from './FunctionCom';
 
 class MyForm extends React.Component {
 
     //*STATE *
     state = {
-        firstName: '',
-        lastName: '',
+        
         adress: '',
         arrJob: [
             { id: 'abcjob1', title: 'dev', salary: '500' },
@@ -16,22 +16,23 @@ class MyForm extends React.Component {
         ]
     }
 
+                                    //----FUNCTION----
+                        // cach them 1 job vao array arrJob
+    addNewJob = (job) => { //job la event click tu child AddCom.js
+        this.setState({
+            arrJob: [...this.state.arrJob, job] //copy lai arrJob bang '...' sau do them 1 job tu child AddCom.js
+        })
+        console.log('check job', job)
+    }
 
-    //----FUNCTION----
-    handleChangeFirstName = (event) => {
+    deleteAjob = (job) => {
+        let currenJob = this.state.arrJob;
+        currenJob = currenJob.filter(item => item.id !== job.id) // dung filter loc cac id khong duoc chon boi delete tao ra var currenJob moi
         this.setState({
-            firstName: event.target.value
+            arrJob: currenJob
         })
     }
-    handleChangeLastName = (event) => {
-        this.setState({
-            lastName: event.target.value
-        })
-    }
-    handleSubmit = (event) => {
-        event.preventDefault()
-        alert("submit")
-    }
+    
                                         //RENDER 
 render() {
     console.log(this.props);
@@ -39,46 +40,22 @@ render() {
         <>
             <h1>Hello my form</h1>
 
-            <form>
-                <label htmlFor="Fname">First Name</label>
-                <br />
-
-                <input
-                    type="text"
-                    value={this.state.firstName}
-                    onChange={(event) => this.handleChangeFirstName(event)}
-                />
-
-                <br />
-                <label htmlFor="Lname">Last Name</label>
-                <br />
-
-                <input
-                    type="text"
-                    value={this.state.lastName}
-                    onChange={(event) => this.handleChangeLastName(event)}
-                />
-
-                <br />
-                <input type="submit" value='submit' onClick={(event) => this.handleSubmit(event)} />
-
-            </form>
-
-
-
-            {/*COMPONENT*/}
-
+                                        {/*COMPONENT*/}
+            <AddCom
+                add= {this.addNewJob}
+                
+            />
+            
             <Child //props : object from parent to child component
-                firstName={this.state.firstName}
                 age={'30'}
                 adress={'VN'}
                 arrJob={this.state.arrJob}
+                delete = {this.deleteAjob}
             />
 
             <MyFunctionalComponent
                 arrJob={this.state.arrJob}
             />
-
         </>
     )
 }

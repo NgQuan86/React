@@ -1,13 +1,10 @@
 import React from "react";
 
 // Function component sử dụng hàm Arrow Function 
-
 //*****KHONG DUNG THIS TRONG FUNCTION COMPONENT (ARROW) VA KHONG TAO STATE (tru khi dung hook)*****
 
 const MyFunctionalComponent = (props) => {
-
     let { arrJob } = props;
-
     return (
         <div>
             <h1>function component </h1>
@@ -23,7 +20,8 @@ const MyFunctionalComponent = (props) => {
                                 </div>
                             )
                         }
-
+                        
+                        return null; // giup fix loi khi khong tra ve gia tri nao
                     })
                 }
             </div>

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import MyForm from "./MyForm";
 
 
-
 class MyCom extends Component {
     state = {          // state (object) déclare outside render()
         name: '',
@@ -32,9 +31,7 @@ class MyCom extends Component {
             <div className="abc">
 
                 {/* {} use to insert js inside html*/}
-
                 <h1 className="first">{title}</h1>
-
                 {/* this. to use object  */}
                 <p className="second">
                     <input value={this.state.name} type="text" onChange={(event) => this.handleChangeName(event)} />  {/* ligne 17*/}
@@ -42,7 +39,6 @@ class MyCom extends Component {
                 </p>
 
                 <p className="third">i'm {this.state['age']}</p>
-
                 <p className="vehicle">my car {this.state['car']}</p>
                 <p className="vehicle">the color is {this.state['color']}</p>
 
